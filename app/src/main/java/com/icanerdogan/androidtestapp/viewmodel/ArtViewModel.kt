@@ -52,7 +52,7 @@ class ArtViewModel @Inject constructor(
     }
 
     fun makeArt(name: String, artistName : String, year: String){
-        if (name.isEmpty()||artistName.isEmpty() || year.isEmpty()){
+        if (name.isEmpty() || artistName.isEmpty() || year.isEmpty()){
             insertArtMsg.postValue(Resource.error("Enter name, artist, year", null))
         }
         val yearInt = try {
@@ -67,6 +67,7 @@ class ArtViewModel @Inject constructor(
         setSelectedImage("")
         insertArtMsg.postValue(Resource.success(art))
     }
+
     fun searchForImage(searchString : String){
         if (searchString.isEmpty()){
             return
